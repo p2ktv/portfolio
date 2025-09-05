@@ -1,103 +1,237 @@
-import Image from "next/image";
+"use client";
+
+import { useEffect, useState } from "react";
+
+import { Github, Linkedin } from "lucide-react";
+import {
+  SiPython,
+  SiTypescript,
+  SiJavascript,
+  SiPostgresql,
+  SiMongodb,
+  SiRedis,
+  SiReact,
+  SiNextdotjs,
+  SiFlask,
+  SiFastapi,
+  SiNestjs,
+  SiTailwindcss,
+  SiDocker,
+  SiStripe,
+  SiApachekafka,
+  SiCloudflare,
+} from "react-icons/si";
+import { FaServer } from "react-icons/fa";
+
+import Skill from "@/app/components/skill";
+import Header from "@/app/components/header";
+import ExperienceItem from "@/app/components/experience";
+import EducationItem from "@/app/components/education";
+import CollapsibleSection from "@/app/components/section";
+
+import { t, type Language } from "@/lib/i18n";
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [language, setLanguage] = useState<Language | null>(null);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+  useEffect(() => {
+    const saved = localStorage.getItem("language");
+    setLanguage((saved as Language) || "en");
+  }, []);
+
+  useEffect(() => {
+    if (language) localStorage.setItem("language", language);
+  }, [language]);
+
+  if (!language) return null;
+
+  return (
+    <main className="min-h-screen max-w-3xl mx-auto px-6 py-12 space-y-12">
+      <Header language={language} />
+
+      <div className="border-t border-neutral-800"></div>
+
+      <CollapsibleSection language={language} titleKey="skills">
+        <div className="pt-4">
+          <p className="font-medium mb-2">
+            {t(language, "programming_languages")}
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <Skill
+              icon={<SiPython className="text-yellow-400" />}
+              name="Python"
             />
-            Deploy now
+            <Skill
+              icon={<SiTypescript className="text-blue-500" />}
+              name="TypeScript"
+            />
+            <Skill
+              icon={<SiJavascript className="text-yellow-300" />}
+              name="JavaScript"
+            />
+            <Skill
+              icon={<SiPostgresql className="text-sky-400" />}
+              name="SQL"
+            />
+          </div>
+        </div>
+
+        <div className="pt-4">
+          <p className="font-medium mb-2">
+            {t(language, "libraries_frameworks")}
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <Skill icon={<SiReact className="text-cyan-400" />} name="React" />
+            <Skill
+              icon={<SiNextdotjs className="text-white" />}
+              name="Next.js"
+            />
+            <Skill
+              icon={<SiFlask className="text-neutral-300" />}
+              name="Flask"
+            />
+            <Skill
+              icon={<SiFastapi className="text-green-400" />}
+              name="FastAPI"
+            />
+            <Skill
+              icon={<SiNestjs className="text-pink-500" />}
+              name="NestJS"
+            />
+            <Skill
+              icon={<SiTailwindcss className="text-sky-400" />}
+              name="Tailwind"
+            />
+          </div>
+        </div>
+
+        <div className="pt-4">
+          <p className="font-medium mb-2">{t(language, "databases")}</p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <Skill
+              icon={<SiMongodb className="text-green-500" />}
+              name="MongoDB"
+            />
+            <Skill icon={<SiRedis className="text-red-500" />} name="Redis" />
+            <Skill
+              icon={<SiPostgresql className="text-sky-400" />}
+              name="PostgreSQL"
+            />
+          </div>
+        </div>
+
+        <div className="pt-4">
+          <p className="font-medium mb-2">
+            {t(language, "infrastructure_tools")}
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <Skill
+              icon={<SiDocker className="text-blue-400" />}
+              name="Docker"
+            />
+            <Skill
+              icon={<SiStripe className="text-indigo-400" />}
+              name="Stripe"
+            />
+            <Skill
+              icon={<SiApachekafka className="text-orange-400" />}
+              name="Kafka"
+            />
+            <Skill
+              icon={<SiCloudflare className="text-orange-500" />}
+              name="Cloudflare"
+            />
+            <Skill
+              icon={<FaServer className="text-neutral-400" />}
+              name="Coolify"
+            />
+          </div>
+        </div>
+      </CollapsibleSection>
+
+      <div className="border-t border-neutral-800"></div>
+
+      <CollapsibleSection language={language} titleKey="experience">
+        <ExperienceItem
+          role="Founder"
+          company="AutoMod.xyz"
+          period="2020 - Present"
+          logoSrc="/exp/automod.png"
+          companyUrl="https://automod.xyz"
+          info={[
+            t(language, "lead_developer_info_1"),
+            t(language, "lead_developer_info_2"),
+            t(language, "lead_developer_info_3"),
+            t(language, "lead_developer_info_4"),
+          ]}
+          highlightColor="text-purple-500"
+        />
+
+        <ExperienceItem
+          role="Co-Founder"
+          company="ModLog.tv"
+          period="2023 - Present"
+          logoSrc="/exp/modlog.png"
+          companyUrl="https://modlog.tv"
+          info={[
+            t(language, "cofounder_info_1"),
+            t(language, "cofounder_info_2"),
+            t(language, "cofounder_info_3"),
+            t(language, "cofounder_info_4"),
+            t(language, "cofounder_info_5"),
+          ]}
+          highlightColor="text-purple-500"
+        />
+      </CollapsibleSection>
+
+      <div className="border-t border-neutral-800"></div>
+
+      <CollapsibleSection language={language} titleKey="education">
+        <EducationItem
+          schoolKey="university_of_applied_sciences_hannover"
+          degreeKey="bachelor_of_science_applied_computer_science"
+          language={language}
+          schoolUrl="https://www.hs-hannover.de/"
+          period="2025 - 2028"
+          logoSrc="/education/hsh.svg"
+          info={[]}
+          highlightColor="text-purple-500"
+        />
+      </CollapsibleSection>
+
+      <footer className="flex justify-between items-center mt-16 text-neutral-500 text-sm border-t border-neutral-800 pt-6">
+        <div>
+          {t(language, "footer_copyright", { year: new Date().getFullYear() })}
+        </div>
+
+        <div className="flex items-center gap-4">
+          <a
+            href="https://github.com/p2k"
+            target="_blank"
+            rel="noreferrer"
+            className="transition-colors duration-200 hover:text-white"
+          >
+            <Github className="w-5 h-5" />
           </a>
           <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href="https://linkedin.com/in/p2k"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noreferrer"
+            className="transition-colors duration-200 hover:text-white"
           >
-            Read our docs
+            <Linkedin className="w-5 h-5" />
           </a>
+
+          <div className="flex items-center gap-1 cursor-pointer">
+            <img
+              src={language === "en" ? "/flags/us.svg" : "/flags/de.svg"}
+              alt="Language flag"
+              className="w-5 h-5"
+              onClick={() => setLanguage(language === "en" ? "de" : "en")}
+            />
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
       </footer>
-    </div>
+    </main>
   );
 }
