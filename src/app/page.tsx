@@ -213,12 +213,19 @@ export default function Home() {
         />
       </CollapsibleSection>
 
-      <footer className="flex justify-between items-center mt-16 text-neutral-500 text-sm border-t border-neutral-800 pt-6">
+      <footer className="flex flex-row justify-between items-center mt-16 text-neutral-500 text-sm border-t border-neutral-800 pt-6 gap-4 md:gap-0">
         <div>
           {t(language, "footer_copyright", { year: new Date().getFullYear() })}
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex flex-row items-center gap-4">
+          <a
+            href="/impressum"
+            className="transition-colors duration-200 hover:text-white"
+          >
+            Impressum
+          </a>
+
           <a
             href="https://github.com/p2ktv"
             target="_blank"
