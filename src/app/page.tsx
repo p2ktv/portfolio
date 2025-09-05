@@ -168,7 +168,7 @@ export default function Home() {
       <CollapsibleSection language={language} titleKey="experience">
         <ExperienceItem
           role="Founder"
-          company="AutoMod.xyz"
+          company="AutoMod"
           period="2020 - Present"
           logoSrc="/exp/automod.png"
           companyUrl="https://automod.xyz"
@@ -183,7 +183,7 @@ export default function Home() {
 
         <ExperienceItem
           role="Co-Founder"
-          company="ModLog.tv"
+          company="ModLog"
           period="2023 - Present"
           logoSrc="/exp/modlog.png"
           companyUrl="https://modlog.tv"
