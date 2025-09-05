@@ -105,7 +105,7 @@ export default function Header({ language }: HeaderProps) {
           </span>
         </div>
         <a
-          href="mailto:me@p2k.dev"
+          href="mailto:pschaper18@gmail.com"
           className="flex items-center gap-2 px-3 py-1 rounded-lg bg-neutral-800 hover:bg-neutral-700 text-white transition-colors"
         >
           <Mail className="w-4 h-4" />
