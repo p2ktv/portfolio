@@ -27,11 +27,11 @@ import {
 } from "react-icons/si";
 // import { FaServer } from "react-icons/fa";
 
-import Skill from "@/app/components/skill";
-import Header from "@/app/components/header";
-import ExperienceItem from "@/app/components/experience";
-import EducationItem from "@/app/components/education";
-import CollapsibleSection from "@/app/components/section";
+import Skill from "@/components/skill";
+import Header from "@/components/header";
+import ExperienceItem from "@/components/experience";
+import EducationItem from "@/components/education";
+import CollapsibleSection from "@/components/section";
 
 import { t, type Language } from "@/lib/i18n";
 
