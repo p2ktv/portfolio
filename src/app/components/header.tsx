@@ -95,7 +95,7 @@ export default function Header({ language }: HeaderProps) {
         </span>
         .
       </p>
-      <div className="flex items-center justify-between text-sm text-neutral-400">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-start sm:justify-between text-sm text-neutral-400 gap-2">
         <div className="flex items-center gap-2 max-w-xs overflow-hidden">
           <span className="text-green-400">🎵</span>
           <span className="truncate">

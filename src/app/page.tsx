@@ -20,8 +20,12 @@ import {
   SiStripe,
   SiApachekafka,
   SiCloudflare,
+  SiNodedotjs,
+  SiPrisma,
+  SiVercel,
+  SiNginx,
 } from "react-icons/si";
-import { FaServer } from "react-icons/fa";
+// import { FaServer } from "react-icons/fa";
 
 import Skill from "@/app/components/skill";
 import Header from "@/app/components/header";
@@ -102,6 +106,10 @@ export default function Home() {
               icon={<SiTailwindcss className="text-sky-400" />}
               name="Tailwind"
             />
+            <Skill
+              icon={<SiNodedotjs className="text-green-600" />}
+              name="Node.js"
+            />
           </div>
         </div>
 
@@ -116,6 +124,10 @@ export default function Home() {
             <Skill
               icon={<SiPostgresql className="text-sky-400" />}
               name="PostgreSQL"
+            />
+            <Skill
+              icon={<SiPrisma className="text-blue-500" />}
+              name="Prisma"
             />
           </div>
         </div>
@@ -141,10 +153,12 @@ export default function Home() {
               icon={<SiCloudflare className="text-orange-500" />}
               name="Cloudflare"
             />
-            <Skill
+            <Skill icon={<SiVercel className="text-white" />} name="Vercel" />
+            <Skill icon={<SiNginx className="text-green-500" />} name="Nginx" />
+            {/* <Skill
               icon={<FaServer className="text-neutral-400" />}
               name="Coolify"
-            />
+            /> */}
           </div>
         </div>
       </CollapsibleSection>
@@ -206,7 +220,7 @@ export default function Home() {
 
         <div className="flex items-center gap-4">
           <a
-            href="https://github.com/p2k"
+            href="https://github.com/p2ktv"
             target="_blank"
             rel="noreferrer"
             className="transition-colors duration-200 hover:text-white"
@@ -214,7 +228,7 @@ export default function Home() {
             <Github className="w-5 h-5" />
           </a>
           <a
-            href="https://linkedin.com/in/p2k"
+            href="https://www.linkedin.com/in/paul-schaper-6349631a2/"
             target="_blank"
             rel="noreferrer"
             className="transition-colors duration-200 hover:text-white"

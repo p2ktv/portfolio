@@ -5,7 +5,7 @@ const CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET!;
 const REFRESH_TOKEN = process.env.SPOTIFY_REFRESH_TOKEN!;
 
 let cache: {
-  data: any;
+  data: object | null;
   timestamp: number;
 } | null = null;
 
@@ -58,7 +58,8 @@ async function fetchCurrentlyPlaying() {
   const data = await res.json();
   const track = data?.item?.name ?? null;
   const artist =
-    data?.item?.artists?.map((a: any) => a.name).join(", ") ?? null;
+    data?.item?.artists?.map((a: { name: string }) => a.name).join(", ") ??
+    null;
   const album = data?.item?.album?.name ?? null;
   const albumImage = data?.item?.album?.images?.[0]?.url ?? null;
 
@@ -78,7 +79,10 @@ export async function GET() {
   try {
     const data = await fetchCurrentlyPlaying();
     return NextResponse.json(data);
-  } catch (err: any) {
-    return NextResponse.json({ error: err.message }, { status: 500 });
+  } catch (err) {
+    return NextResponse.json(
+      { error: (err as { message: string }).message },
+      { status: 500 }
+    );
   }
 }
