@@ -235,7 +235,7 @@ export default function Home() {
             <Github className="w-5 h-5" />
           </a>
           <a
-            href="https://www.linkedin.com/in/paul-schaper-6349631a2/"
+            href="https://www.linkedin.com/in/pschaper/"
             target="_blank"
             rel="noreferrer"
             className="transition-colors duration-200 hover:text-white"
