@@ -28,9 +28,9 @@ export default function CollapsibleSection({
       >
         <h2 className="text-2xl font-semibold">{t(language, titleKey)}</h2>
         {open ? (
-          <ChevronUp className="w-5 h-5 text-neutral-400" />
+          <ChevronUp className="w-5 h-5 text-[#a1a1aa]" />
         ) : (
-          <ChevronDown className="w-5 h-5 text-neutral-400" />
+          <ChevronDown className="w-5 h-5 text-[#a1a1aa]" />
         )}
       </div>
       <div className={`mt-4 overflow-visible`}>{open && children}</div>

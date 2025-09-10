@@ -69,7 +69,7 @@ export default function RootLayout({
       <body
         className={cn(
           `${geistSans.variable} ${geistMono.variable} antialiased`,
-          "bg-neutral-950 text-neutral-200 antialiased",
+          "bg-[#18181b] text-neutral-200 antialiased",
           "max-w-2xl mx-auto px-6 py-12 leading-relaxed"
         )}
       >

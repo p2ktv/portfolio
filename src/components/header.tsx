@@ -80,7 +80,7 @@ export default function Header({ language }: HeaderProps) {
           </div>
         </div>
       </div>
-      <p className="text-neutral-400 text-lg leading-relaxed max-w-xl">
+      <p className="text-[#a1a1aa] text-lg leading-relaxed max-w-xl">
         {t(language, "header_description_prefix")}{" "}
         <span className="text-white font-medium">
           {t(language, "header_description_backend")}
@@ -95,7 +95,7 @@ export default function Header({ language }: HeaderProps) {
         </span>
         .
       </p>
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-start sm:justify-between text-sm text-neutral-400 gap-2">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-start sm:justify-between text-sm text-[#a1a1aa] gap-2">
         <div className="flex items-center gap-2 max-w-xs overflow-hidden">
           <span className="text-green-400">🎵</span>
           <span className="truncate">
@@ -106,7 +106,7 @@ export default function Header({ language }: HeaderProps) {
         </div>
         <a
           href="mailto:pschaper18@gmail.com"
-          className="flex items-center gap-2 px-3 py-1 rounded-lg bg-neutral-800 hover:bg-neutral-700 text-white transition-colors"
+          className="flex items-center gap-2 px-3 py-1 rounded-[3px] bg-[#27272a] border border-[#3f3f46] hover:bg-[#2d2d31] hover:border[#3f3f46] text-white transition-colors"
         >
           <Mail className="w-4 h-4" />
           {t(language, "header_email")}

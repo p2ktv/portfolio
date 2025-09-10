@@ -156,7 +156,7 @@ export default function Home() {
             <Skill icon={<SiVercel className="text-white" />} name="Vercel" />
             <Skill icon={<SiNginx className="text-green-500" />} name="Nginx" />
             {/* <Skill
-              icon={<FaServer className="text-neutral-400" />}
+              icon={<FaServer className="text-[#a1a1aa]" />}
               name="Coolify"
             /> */}
           </div>

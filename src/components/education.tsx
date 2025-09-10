@@ -29,7 +29,7 @@ export default function EducationItem({
         <span
           className={`w-1.5 h-1.5 rounded-full ${highlightColor} bg-current absolute left-0 top-3`}
         ></span>
-        <span className="absolute left-0.5 top-7.5 bottom-0 w-[2px] bg-neutral-600/40"></span>
+        <span className="absolute left-0.5 top-7.5 bottom-0 w-[2px] bg-[#27272a]"></span>
         <div className="ml-2 flex flex-col space-y-0.5">
           <span className={`font-semibold text-lg ${highlightColor}`}>
             {t(language, schoolKey)}
@@ -48,13 +48,13 @@ export default function EducationItem({
               {t(language, degreeKey)}
             </span>
           )}
-          <span className="text-neutral-400 text-base">{period}</span>
+          <span className="text-[#a1a1aa] text-base">{period}</span>
         </div>
         <ul className="ml-4 mt-2 space-y-1">
           {info.map((item, idx) => (
             <li
               key={idx}
-              className="flex items-start space-x-2.5 text-neutral-400 text-base"
+              className="flex items-start space-x-2.5 text-[#a1a1aa] text-base"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-neutral-500 flex-shrink-0 mt-2.5"></span>
               <span>{item}</span>

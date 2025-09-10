@@ -6,7 +6,7 @@ export default function ImpressumPage() {
     <main className="max-w-2xl mx-auto px-6 py-12 text-neutral-200 bg-neutral-950 min-h-screen">
       <h1 className="text-3xl font-bold mb-6">Impressum</h1>
 
-      <section className="space-y-2 text-neutral-400">
+      <section className="space-y-2 text-[#a1a1aa]">
         <p>
           <strong>Angaben gemäß §5 TMG:</strong>
         </p>
